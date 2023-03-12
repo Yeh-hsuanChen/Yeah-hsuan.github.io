@@ -446,10 +446,10 @@ var gitblog = function(config) {
 
             var editor_content = document.getElementById('write-field');
             if (comment.login == false) {
-                editor_content.innerHTML = '<textarea placeholder="(发表评论)" title="请登入以发表评论" disabled id="comment-input"></textarea>';
+                editor_content.innerHTML = '<textarea placeholder="(发表Comment)" title="请登入以发表Comment" disabled id="comment-input"></textarea>';
                 $('.gitment-editor-submit').attr("disabled", true);
             } else {
-                editor_content.innerHTML = '<textarea placeholder="(发表评论)" id="comment-input"></textarea>';
+                editor_content.innerHTML = '<textarea placeholder="(发表Comment)" id="comment-input"></textarea>';
                 $('.gitment-editor-submit').attr("disabled", false);
             }
 
@@ -466,7 +466,7 @@ var gitblog = function(config) {
         addComment: function(data) {
             var comment = new commentItem();
             data.created_at = self.utc2localTime(data.created_at);
-            document.getElementById('comment-list').innerHTML += '<li class="gitment-comment">' + '<a class="gitment-comment-avatar" href=' + data.user.html_url + ' target="_blank">' + '<img class="gitment-comment-avatar-img" src=' + data.user.avatar_url + '></a>' + '<div class="gitment-comment-main"><div class="gitment-comment-header">' + '<a class="gitment-comment-name" href=' + data.user.html_url + ' target="_blank">' + data.user.login + '</a> 评论于 ' + '<span>' + data.created_at + '</span>' + '<div style="float:right;cursor:pointer" id="' + data.id + '"></div>' + '</div><div class="gitment-comment-body gitment-markdown">' + data.body_html + '</div></div>';
+            document.getElementById('comment-list').innerHTML += '<li class="gitment-comment">' + '<a class="gitment-comment-avatar" href=' + data.user.html_url + ' target="_blank">' + '<img class="gitment-comment-avatar-img" src=' + data.user.avatar_url + '></a>' + '<div class="gitment-comment-main"><div class="gitment-comment-header">' + '<a class="gitment-comment-name" href=' + data.user.html_url + ' target="_blank">' + data.user.login + '</a> Comment于 ' + '<span>' + data.created_at + '</span>' + '<div style="float:right;cursor:pointer" id="' + data.id + '"></div>' + '</div><div class="gitment-comment-body gitment-markdown">' + data.body_html + '</div></div>';
             comment.reaction.getNum('comment', data.id);
             this.item.push(comment);
         },
@@ -512,9 +512,9 @@ var gitblog = function(config) {
             var preview_content = document.getElementById('preview-content');
             var comment_input = document.getElementById('comment-input').value;
             if (comment_input == "") {
-                preview_content.innerHTML = '（没有预览）';
+                preview_content.innerHTML = '（NoPreview）';
             } else {
-                preview_content.innerHTML = '预览加载中';
+                preview_content.innerHTML = 'Preview加载中';
                 $.ajax({
                     type: "post",
                     url: 'https://api.github.com/markdown',

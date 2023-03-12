@@ -1,6 +1,6 @@
 <?php
     /**
-     * 发送post请求
+     * Submitpost请求
      * @param string $url 请求地址
      * @param array $post_data post键值对数据
      * @return string

@@ -7,17 +7,17 @@
 
 ## 现有功能
 - [x] 发表文章
-- [x] 文章评论
-- [x] 文章、评论分页
+- [x] 文章Comment
+- [x] 文章、Comment分页
 - [x] 文章设置标签
 - [x] 文章搜索功能
-- [x] 文章、评论点赞功能（不能取消点赞 :stuck_out_tongue_winking_eye:
+- [x] 文章、Comment点赞功能（不能取消点赞 :stuck_out_tongue_winking_eye:
 - [x] 博客API接口，可输出`json`格式信息，方便用户进行开发客户端等操作。具体接口使用见说明底部。
-- [x] 可根据文章作者和文章状态(close或open)筛选文章，暂不支持多人筛选
+- [x] 可根据文章作者和文章状态(close或open)筛选文章，暂不Support多人筛选
 
-博客本身没有发表文章的接口，而是在GitHub的issue页面直接new issue。
+博客本身No发表文章的接口，而是在GitHub的issue页面直接new issue。
 
-评论功能参考了[Gitment](https://github.com/imsun/gitment)，借用了Gitment的css样式，重写了JavaScript逻辑。评论功能基于GitHub的issue，支持Markdown语法，支持@功能，支持点赞功能。
+Comment功能参考了[Gitment](https://github.com/imsun/gitment)，借用了Gitment的css样式，重写了JavaScript逻辑。Comment功能基于GitHub的issue，SupportMarkdownGrammer，Support@功能，Support点赞功能。
 
 可以在GitHub上为每个文章指定标签label。
 
@@ -99,11 +99,11 @@ client_id|填写你申请OAuth APP时拿到的client_id
 client_secret|填写你申请OAuth APP时拿到的client_secret
 title|填写你的个人网站的标题
 instruction|填写你的个人网站的简介
-server_link|填写你的服务端地址，~~若没有服务器可填写`http://119.23.8.25/gh-oauth-server.php`~~ 该服务器已停用
+server_link|填写你的服务端地址，~~若No服务器可填写`http://119.23.8.25/gh-oauth-server.php`~~ 该服务器已停用
 filter|填写issue筛选规则，可根据creator和issue state筛选
 menu|填写右侧菜单中的名称和链接
-friends|填写你的网站的友链，若没有则不填写
-icons|填写网站页脚的图标信息，若没有则不填写
+friends|填写你的网站的友链，若No则不填写
+icons|填写网站页脚的图标信息，若No则不填写
 
 上面的server_link是服务端的地址，，因为访问用户的access_token必须通过服务端访问，详情可见[这篇文章](https://imuncle.github.io/content.html?id=22)。这个服务端使用PHP编写，只负责请求用户的access_token，不会存储任何数据。详见[源代码](https://github.com/imuncle/gitblog/blob/master/server/gh-oauth-server.php)。
 
@@ -140,7 +140,7 @@ page_backfround.jpg|首页的背景图
 search.svg|右上角搜索图标
 totop.png|右下角“回到顶部”按钮图标
 
-如果没有前端知识，建议更改图片时不要更改文件名。
+如果No前端知识，建议更改图片时不要更改文件名。
 
 ## API接口
 API接口的实现见[api.html](https://github.com/imuncle/gitblog/blob/master/api.html)，通过访问该文件获取信息，使用url参数指定获取的信息内容。具体的用法如下。
@@ -206,7 +206,7 @@ $.ajax({
 ```
 
 ### 获取文章列表
-获取文章列表分为三种模式：一种是无筛选的普通模式，一种是按标签（label）筛选的标签模式，一种是按搜索内容筛选的搜索模式。三种模式都支持分页模式。
+获取文章列表分为三种模式：一种是无筛选的普通模式，一种是按标签（label）筛选的标签模式，一种是按搜索内容筛选的搜索模式。三种模式都Support分页模式。
 ```javascript
 var request_url = 'your domain name' + 'api.html?';
 request_url += 'page=1';    //普通模式
